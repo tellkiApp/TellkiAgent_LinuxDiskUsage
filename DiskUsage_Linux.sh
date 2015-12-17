@@ -47,7 +47,7 @@ PerFreeSpaceID_on=`echo $1 | awk -F',' '{print $1}'`
 
 if [ -f /.dockerinit ]; then
 	# Docker Enviroment
-	for fs in `cat /host/etc/mtab | grep -v "#" | grep -E " ext| ntfs| nfs| vfat| fat| xfs| zfs| smbfs| reiserfs| hfs| hfsplus| jfs| overlay" | awk '{print $2}'`
+	for fs in `cat /host/etc/mtab | grep -v "#" | grep -E " ext| ntfs| nfs| vfat| fat| xfs| zfs| smbfs| reiserfs| hfs| hfsplus| jfs| btrfs| overlay" | awk '{print $2}'`
 	do
 		if [ -d $fs ] || [ -f $fs ]
 			then
@@ -97,7 +97,7 @@ if [ -f /.dockerinit ]; then
 	done
 else
 	# Server environment
-	for fs in `cat /etc/mtab | grep -v "#" | grep -E " ext| ntfs| nfs| vfat| fat| xfs| zfs| smbfs| reiserfs| hfs| hfsplus| jfs" | awk '{print $2}'`
+	for fs in `cat /etc/mtab | grep -v "#" | grep -E " ext| ntfs| nfs| vfat| fat| xfs| zfs| smbfs| reiserfs| hfs| hfsplus| jfs| btrfs" | awk '{print $2}'`
 	do
 		if [ -d $fs ]
 			then
